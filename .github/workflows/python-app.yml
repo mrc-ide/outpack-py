@@ -24,6 +24,9 @@ jobs:
       uses: snok/install-poetry@v1.3.0
     - name: Install dependencies
       run: poetry install
-    - name: Test with pytest
+    - name: Test with pytest/coverage
       run: |
-        poetry run pytest
+        poetry run coverage run -m pytest
+        poetry run coverage report -m
+    - name: Upload Coverage to Codecov
+      uses: codecov/codecov-action@v2
