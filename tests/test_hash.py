@@ -20,7 +20,8 @@ def test_hash_file(tmp_path):
     with open(p, "wb") as f:
         f.write(bytes(range(256)))
     h = hash_file(p, "md5")
-    assert h == Hash(algorithm='md5', digest='e2c865db4162bed963bfaa9ef6ac18f0')
+    assert h == Hash(algorithm='md5',
+                     digest='e2c865db4162bed963bfaa9ef6ac18f0')
 
 
 def test_hash_validate_is_silent_on_success(tmp_path):
@@ -28,7 +29,7 @@ def test_hash_validate_is_silent_on_success(tmp_path):
     with open(p, "wb") as f:
         f.write(bytes(range(256)))
     h = Hash(algorithm="md5", digest="e2c865db4162bed963bfaa9ef6ac18f0")
-    ## Just a test that there is no error:
+    # Just a test that there is no error:
     hash_validate(p, h)
 
     h.algorithm = "sha1"

@@ -8,6 +8,7 @@ from dataclasses import dataclass, field
 class Hash:
     algorithm: str
     digest: str
+
     def __str__(self):
         return f"{self.algorithm}:{self.digest}"
 
