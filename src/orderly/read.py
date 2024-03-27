@@ -48,6 +48,8 @@ def _is_orderly_call(expr):
     if not isinstance(expr.value, ast.Call):
         return False
     call = expr.value
+    if not isinstance(call.func, ast.Attribute):
+        return False
     return call.func.value.id == "orderly" and call.func.attr
 
 
